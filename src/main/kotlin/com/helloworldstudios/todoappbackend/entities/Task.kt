@@ -1,7 +1,6 @@
 package com.helloworldstudios.todoappbackend.entities
 
 import com.helloworldstudios.todoappbackend.core.entities.BaseEntity
-import com.helloworldstudios.todoappbackend.core.entities.GeneralEnumClasses
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
@@ -18,5 +17,5 @@ data class Task(
     @Column(name = "due_date")
     val dueDate: Date
 ) : BaseEntity(){
-    constructor() : this("title", "description", GeneralEnumClasses.TaskStatus.TODO, Date.from(Instant.now()))
+    constructor() : this("title", "description", -1L, Date.from(Instant.now()))
 }
