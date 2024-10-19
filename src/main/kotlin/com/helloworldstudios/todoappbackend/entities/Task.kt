@@ -2,7 +2,9 @@ package com.helloworldstudios.todoappbackend.entities
 
 import com.helloworldstudios.todoappbackend.core.entities.BaseEntity
 import com.helloworldstudios.todoappbackend.core.entities.GeneralEnumClasses
-import jakarta.persistence.*
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Table
 import java.time.Instant
 import java.util.*
 
@@ -12,8 +14,7 @@ data class Task(
     val title: String,
     val description: String,
     @Column(name = "task_status")
-    @Enumerated(EnumType.STRING)
-    val taskStatus: GeneralEnumClasses.TaskStatus,
+    val taskStatus: Long,
     @Column(name = "due_date")
     val dueDate: Date
 ) : BaseEntity(){
