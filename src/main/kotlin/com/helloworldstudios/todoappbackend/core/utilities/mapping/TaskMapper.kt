@@ -15,14 +15,14 @@ interface TaskMapper {
 
     @Mapping(source = "title", target = "title")
     @Mapping(source = "description", target = "description")
-    @Mapping(source = "task_status", target = "task_status")
+    @Mapping(source = "taskStatus", target = "taskStatus")
     @Mapping(source = "dueDate", target = "dueDate")
     fun taskFromCreateTaskRequest(request: CreateTaskRequest): Task
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "title", target = "title")
     @Mapping(source = "description", target = "description")
-    @Mapping(source = "task_status", target = "task_status")
+    @Mapping(source = "taskStatus", target = "taskStatus")
     @Mapping(source = "dueDate", target = "dueDate")
     fun createdTaskResponseFromTask(task: Task): CreatedTaskResponse
 }
