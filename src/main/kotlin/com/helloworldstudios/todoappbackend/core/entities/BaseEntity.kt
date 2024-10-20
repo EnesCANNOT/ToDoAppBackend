@@ -15,7 +15,7 @@ open class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    val id: Long? = null
+    var id: Long? = null
 
     @Column(name = "createdDate")
     var createdDate: Date? = null
