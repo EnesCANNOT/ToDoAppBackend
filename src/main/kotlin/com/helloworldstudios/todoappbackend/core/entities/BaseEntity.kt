@@ -24,7 +24,7 @@ open class BaseEntity {
     var updatedDate: Date? = null
 
     @Column(name = "deletedDate")
-    val deletedDate: Date? = null
+    var deletedDate: Date? = null
 
     @PrePersist
     fun onCreate() {
