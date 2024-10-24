@@ -4,8 +4,7 @@ import jakarta.persistence.*
 import lombok.AllArgsConstructor
 import lombok.Data
 import lombok.NoArgsConstructor
-import java.time.Instant
-import java.util.*
+import java.time.LocalDateTime
 
 @Data
 @AllArgsConstructor
@@ -18,23 +17,21 @@ open class BaseEntity {
     var id: Long? = null
 
     @Column(name = "createdDate")
-    var createdDate: Date? = null
+    var createdDate: LocalDateTime? = null
 
     @Column(name = "updatedDate")
-    var updatedDate: Date? = null
+    var updatedDate: LocalDateTime? = null
 
     @Column(name = "deletedDate")
-    var deletedDate: Date? = null
+    var deletedDate: LocalDateTime? = null
 
     @PrePersist
     fun onCreate() {
-        createdDate = Date.from(Instant.now())
-        println(createdDate)
+        createdDate = LocalDateTime.now()
     }
 
     @PreUpdate
     fun onUpdate() {
-        updatedDate = Date.from(Instant.now())
-        println(updatedDate)
+        updatedDate = LocalDateTime.now()
     }
 }

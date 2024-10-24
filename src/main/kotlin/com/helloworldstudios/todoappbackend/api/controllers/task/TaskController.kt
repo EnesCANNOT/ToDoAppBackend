@@ -22,17 +22,17 @@ class TaskController {
     @Autowired
     private lateinit var taskService: TaskService
 
-    @PostMapping("create")
+    @PostMapping("/create")
     fun createTask(@RequestBody request: CreateTaskRequest): CreatedTaskResponse {
         return taskService.createTask(request)
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     fun updateTask(@RequestBody request: UpdateTaskRequest): UpdatedTaskResponse {
         return taskService.updateTask(request)
     }
 
-    @PostMapping("delete")
+    @PostMapping("/delete")
     fun deleteTask(@RequestBody request: DeleteTaskRequest): DeletedTaskResponse {
         return taskService.deleteTask(request)
     }

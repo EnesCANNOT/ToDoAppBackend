@@ -4,7 +4,7 @@ import com.helloworldstudios.todoappbackend.core.entities.BaseEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
-import java.util.*
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "tasks")
@@ -16,7 +16,7 @@ data class Task(
     @Column(name = "task_status", nullable = false)
     var taskStatus: Long,
     @Column(name = "due_date", nullable = true)
-    var dueDate: Date?
+    var dueDate: LocalDateTime?
 ) : BaseEntity(){
     constructor() : this("title", null, -1L, null)
 }

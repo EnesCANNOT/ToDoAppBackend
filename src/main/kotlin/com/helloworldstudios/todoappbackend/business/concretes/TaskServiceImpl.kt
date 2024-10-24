@@ -13,8 +13,7 @@ import com.helloworldstudios.todoappbackend.entities.Task
 import lombok.AllArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.time.Instant
-import java.util.*
+import java.time.LocalDateTime
 import kotlin.jvm.optionals.getOrNull
 
 @Service
@@ -51,7 +50,7 @@ class TaskServiceImpl : TaskService {
         val foundTask: Task? = taskRepository.findById(request.id).getOrNull()
         if (foundTask != null) {
             val task: Task = TaskMapper.INSTANCE.tasFromDeleteTaskRequest(request)
-            task.deletedDate = Date.from(Instant.now())
+            task.deletedDate = LocalDateTime.now()
             val deletedTask = taskRepository.save(task)
             val deletedTaskResponse: DeletedTaskResponse = TaskMapper.INSTANCE.deletedTaskResponseFromTask(deletedTask)
             return deletedTaskResponse
